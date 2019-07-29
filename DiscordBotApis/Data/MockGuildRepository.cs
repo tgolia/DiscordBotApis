@@ -12,7 +12,7 @@ namespace DiscordBotApis.Data
         {
             var guild = new Guild()
             {
-                Name = "Bongus"
+                //Name = "MockGuild"
             };
 
             var guildList = new List<Guild>() { guild };
@@ -24,7 +24,7 @@ namespace DiscordBotApis.Data
         {
             var guild = new Guild()
             {
-                Name = "BongusById"
+                //Name = "MockGuildById"
             };
 
             return guild;
@@ -34,7 +34,7 @@ namespace DiscordBotApis.Data
         {
             var user = new User()
             {
-                Name = "BongusUser"
+                //Name = "MockUser"
             };
 
             var userList = new List<User>() { user };

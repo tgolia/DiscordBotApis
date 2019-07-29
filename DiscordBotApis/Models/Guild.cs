@@ -7,6 +7,9 @@ namespace DiscordBotApis.Models
 {
     public class Guild
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public ulong GuildId { get; set; }
+        public ulong OwnerId { get; set; }
+        public List<GuildUser> GuildUsers { get; set; }
     }
 }
