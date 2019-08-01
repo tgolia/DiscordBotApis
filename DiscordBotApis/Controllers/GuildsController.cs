@@ -23,25 +23,31 @@ namespace DiscordBotApis.Controllers
         [HttpGet]
         public ActionResult<List<Guild>> Get()
         {
+
             var guilds = _guildRepository.GetGuilds();
 
             return Ok(guilds);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Guild> Get(int id)
+        public ActionResult<Guild> Get(ulong id)
         {
             var guild = _guildRepository.GetGuildById(id);
+
+            if (guild == null)
+            {
+                return NotFound("The Guilds record couldn't be found.");
+            }
 
             return Ok(guild);
         }
 
-        [HttpGet("{id}/users")]
-        public ActionResult<List<User>> GetUsers(int id)
-        {
-            var users = _guildRepository.GetUsersByGuildId(id);
+        //[HttpGet("{id}/users")]
+        //public ActionResult<List<User>> GetUsers(ulong id)
+        //{
+        //    var users = _guildRepository.GetUsersByGuildId(id);
 
-            return Ok(users);
-        }
+        //    return Ok(users);
+        //}
     }
 }

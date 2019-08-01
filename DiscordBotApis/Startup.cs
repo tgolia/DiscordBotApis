@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiscordBotApis
 {
@@ -28,7 +29,14 @@ namespace DiscordBotApis
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddSingleton<IGuildRepository, MockGuildRepository>();
+            //services.AddSingleton<IGuildRepository, MockGuildRepository>();
+            services.AddScoped<IGuildRepository, GuildManager>();
+
+            services.AddDbContextPool<GuildContext>(
+                options => options.UseSqlServer(Configuration["ConnectionString:DiscordBotData"])
+            );
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
