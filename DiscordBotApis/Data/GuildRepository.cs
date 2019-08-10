@@ -6,19 +6,17 @@ using DiscordBotApis.Models;
 
 namespace DiscordBotApis.Data
 {
-    public class GuildManager : IGuildRepository
+    public class GuildRepository : IGuildRepository
     {
-        private GuildContext _guildContext;
+        private DiscordBotApiDbContext _guildContext;
 
-        public GuildManager(GuildContext context)
+        public GuildRepository(DiscordBotApiDbContext context)
         {
             _guildContext = context;
         }
 
         public Guild GetGuildById(ulong id)
-
         {
-            Console.WriteLine(_guildContext.Guilds);
             return _guildContext.Guilds
                 .FirstOrDefault(g => g.GuildId == id);
         }
@@ -28,9 +26,9 @@ namespace DiscordBotApis.Data
             return _guildContext.Guilds.ToList();
         }
 
-        //public List<User> GetUsersByGuildId(int guildId)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<User> GetUsersByGuildId(ulong guildId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

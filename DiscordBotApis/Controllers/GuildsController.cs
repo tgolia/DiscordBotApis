@@ -19,6 +19,7 @@ namespace DiscordBotApis.Controllers
         {
             _guildRepository = guildRepository;
         }
+
         //GET guilds
         [HttpGet]
         public ActionResult<List<Guild>> Get()
@@ -42,12 +43,12 @@ namespace DiscordBotApis.Controllers
             return Ok(guild);
         }
 
-        //[HttpGet("{id}/users")]
-        //public ActionResult<List<User>> GetUsers(ulong id)
-        //{
-        //    var users = _guildRepository.GetUsersByGuildId(id);
+        [HttpGet("{id}/users")]
+        public ActionResult<List<User>> GetUsers(ulong id)
+        {
+            var users = _guildRepository.GetUsersByGuildId(id);
 
-        //    return Ok(users);
-        //}
+            return Ok(users);
+        }
     }
 }

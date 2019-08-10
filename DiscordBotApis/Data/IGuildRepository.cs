@@ -12,6 +12,6 @@ namespace DiscordBotApis.Data
 
         Guild GetGuildById(ulong id);
 
-        //List<User> GetUsersByGuildId(ulong guildId);
+        List<User> GetUsersByGuildId(ulong guildId);
     }
 }

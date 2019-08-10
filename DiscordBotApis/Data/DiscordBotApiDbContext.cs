@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DiscordBotApis.Data
 {
-    public class GuildContext : DbContext
+    public class DiscordBotApiDbContext : DbContext
     {
         public DbSet<Guild> Guilds { get; set; }
 
-        public GuildContext(DbContextOptions options)
+        public DiscordBotApiDbContext(DbContextOptions options)
             : base(options) { }
     }
 }

@@ -10,10 +10,7 @@ namespace DiscordBotApis.Data
     {
         public List<Guild> GetGuilds()
         {
-            var guild = new Guild()
-            {
-                //Name = "Bongus"
-            };
+            var guild = new Guild();
 
             var guildList = new List<Guild>() { guild };
 
@@ -22,20 +19,14 @@ namespace DiscordBotApis.Data
 
         public Guild GetGuildById(ulong id)
         {
-            var guild = new Guild()
-            {
-                //Name = "BongusById"
-            };
+            var guild = new Guild();
 
             return guild;
         }
 
-        public List<User> GetUsersByGuildId(int guildId)
+        public List<User> GetUsersByGuildId(ulong guildId)
         {
-            var user = new User()
-            {
-                //Name = "BongusUser"
-            };
+            var user = new User();
 
             var userList = new List<User>() { user };
 

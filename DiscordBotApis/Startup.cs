@@ -29,14 +29,11 @@ namespace DiscordBotApis
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            //services.AddSingleton<IGuildRepository, MockGuildRepository>();
-            services.AddScoped<IGuildRepository, GuildManager>();
+            services.AddScoped<IGuildRepository, GuildRepository>();
 
-            services.AddDbContextPool<GuildContext>(
+            services.AddDbContextPool<DiscordBotApiDbContext>(
                 options => options.UseSqlServer(Configuration["ConnectionString:DiscordBotData"])
             );
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
