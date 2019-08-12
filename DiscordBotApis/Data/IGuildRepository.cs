@@ -10,8 +10,8 @@ namespace DiscordBotApis.Data
     {
         List<Guild> GetGuilds();
 
-        Guild GetGuildById(int id);
+        Guild GetGuildById(ulong id);
 
-        List<User> GetUsersByGuildId(int guildId);
+        List<User> GetUsersByGuildId(ulong guildId);
     }
 }
