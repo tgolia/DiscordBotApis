@@ -7,6 +7,14 @@ namespace DiscordBotApis.Models
 {
     public class User
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
+
+        public long DiscordId { get; set; }
+
+        public string Username { get; set; }
+
+        public ushort DiscriminatorValue { get; set; }
+
+        public List<GuildUser> UserGuilds { get; set; }
     }
 }
