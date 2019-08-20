@@ -13,5 +13,12 @@ namespace DiscordBotApis.Data
 
         public DiscordBotApiDbContext(DbContextOptions options)
             : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<GuildUser>()
+                .HasKey(g => new { g.GuildId, g.UserId });
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
